@@ -1,4 +1,4 @@
-package com.example;
+package com.example.project;
 /*
  *${USER}
  *${DATE} ${TIME}

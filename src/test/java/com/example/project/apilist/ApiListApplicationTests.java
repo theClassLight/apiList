@@ -1,4 +1,4 @@
-package com.example.apilist;
+package com.example.project.apilist;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

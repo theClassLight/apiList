@@ -1,4 +1,4 @@
-package com.example.common;
+package com.example.project.common;
 /*
  *Administrator
  *2023/4/10 21:52

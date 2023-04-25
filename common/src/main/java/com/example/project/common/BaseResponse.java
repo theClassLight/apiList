@@ -1,4 +1,4 @@
-package com.example.common;
+package com.example.project.common;
 /*
  *Administrator
  *2023/4/10 20:05
@@ -7,6 +7,7 @@ package com.example.common;
 import lombok.Data;
 
 import java.io.Serializable;
+
 @Data
 public class BaseResponse<T> implements Serializable {
     private int code;
@@ -23,6 +24,7 @@ public class BaseResponse<T> implements Serializable {
         this.message = message;
         this.description = description;
     }
+
     public BaseResponse(int code, T data, String message) {
         this(code, data, message, "");
     }
@@ -30,6 +32,7 @@ public class BaseResponse<T> implements Serializable {
     public BaseResponse(int code, T data) {
         this(code, data, "", "");
     }
+
     public BaseResponse(ErrorCode errorCode) {
         this(errorCode.getCode(), null, errorCode.getMessage(), errorCode.getDescription());
     }

@@ -1,4 +1,4 @@
-package com.example.apilist;
+package com.example.project.apilist;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
