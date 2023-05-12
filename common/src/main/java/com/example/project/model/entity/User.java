@@ -1,10 +1,10 @@
 package com.example.project.model.entity;
 
 import com.baomidou.mybatisplus.annotation.*;
-import lombok.Data;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.time.LocalDateTime;
+import lombok.Data;
 
 /**
  * 用户
@@ -16,89 +16,105 @@ public class User implements Serializable {
     /**
      * id
      */
-    @TableId(type = IdType.AUTO)
+    @TableId(value = "id", type = IdType.AUTO)
     private Long id;
 
     /**
      * 账号
      */
-    private String useraccount;
+    @TableField(value = "userAccount")
+    private String userAccount;
 
     /**
      * 密码
      */
-    private String userpassword;
+    @TableField(value = "userPassword")
+    private String userPassword;
 
     /**
      * 微信开放平台id
      */
-    private String unionid;
+    @TableField(value = "unionId")
+    private String unionId;
 
     /**
      * 公众号openId
      */
-    private String mpopenid;
+    @TableField(value = "mpOpenId")
+    private String mpOpenId;
 
     /**
      * 用户昵称
      */
-    private String username;
+    @TableField(value = "userName")
+    private String userName;
 
     /**
      * 用户头像
      */
-    private String useravatar;
+    @TableField(value = "userAvatar")
+    private String userAvatar;
 
     /**
-     * 性别
+     * 性别 :0->女; 1->男
      */
+    @TableField(value = "gender")
     private Integer gender;
 
     /**
      * 用户简介
      */
-    private String userprofile;
+    @TableField(value = "userProfile")
+    private String userProfile;
 
     /**
      * 标签 json 列表
      */
+    @TableField(value = "tags")
     private String tags;
 
     /**
      * 状态 0 - 正常
      */
-    private Integer userstatus;
+    @TableField(value = "userStatus")
+    private Integer userStatus;
 
     /**
      * accessKey
      */
-    private String accesskey;
+    @TableField(value = "accessKey")
+    private String accessKey;
 
     /**
      * secretKey
      */
-    private String secretkey;
+    @TableField(value = "secretKey")
+    private String secretKey;
 
     /**
      * 用户角色：user/admin/ban
      */
-    private String userrole;
+    @TableField(value = "userRole")
+    private String userRole;
 
     /**
      * 创建时间
      */
-    private Date createtime;
+    @TableField(value = "createTime")
+    private LocalDateTime createTime;
 
     /**
      * 更新时间
      */
-    private Date updatetime;
+    @TableField(value = "updateTime")
+    private LocalDateTime updateTime;
 
     /**
-     * 是否删除
+     * 是否删除:0存活;1删除
      */
+    @TableField(value = "isDelete")
     @TableLogic
-    private Integer isdelete;
+    private Integer isDelete;
 
     @TableField(exist = false)
     private static final long serialVersionUID = 1L;
@@ -116,22 +132,22 @@ public class User implements Serializable {
         }
         User other = (User) that;
         return (this.getId() == null ? other.getId() == null : this.getId().equals(other.getId()))
-            && (this.getUseraccount() == null ? other.getUseraccount() == null : this.getUseraccount().equals(other.getUseraccount()))
-            && (this.getUserpassword() == null ? other.getUserpassword() == null : this.getUserpassword().equals(other.getUserpassword()))
-            && (this.getUnionid() == null ? other.getUnionid() == null : this.getUnionid().equals(other.getUnionid()))
-            && (this.getMpopenid() == null ? other.getMpopenid() == null : this.getMpopenid().equals(other.getMpopenid()))
-            && (this.getUsername() == null ? other.getUsername() == null : this.getUsername().equals(other.getUsername()))
-            && (this.getUseravatar() == null ? other.getUseravatar() == null : this.getUseravatar().equals(other.getUseravatar()))
+            && (this.getUserAccount() == null ? other.getUserAccount() == null : this.getUserAccount().equals(other.getUserAccount()))
+            && (this.getUserPassword() == null ? other.getUserPassword() == null : this.getUserPassword().equals(other.getUserPassword()))
+            && (this.getUnionId() == null ? other.getUnionId() == null : this.getUnionId().equals(other.getUnionId()))
+            && (this.getMpOpenId() == null ? other.getMpOpenId() == null : this.getMpOpenId().equals(other.getMpOpenId()))
+            && (this.getUserName() == null ? other.getUserName() == null : this.getUserName().equals(other.getUserName()))
+            && (this.getUserAvatar() == null ? other.getUserAvatar() == null : this.getUserAvatar().equals(other.getUserAvatar()))
             && (this.getGender() == null ? other.getGender() == null : this.getGender().equals(other.getGender()))
-            && (this.getUserprofile() == null ? other.getUserprofile() == null : this.getUserprofile().equals(other.getUserprofile()))
+            && (this.getUserProfile() == null ? other.getUserProfile() == null : this.getUserProfile().equals(other.getUserProfile()))
             && (this.getTags() == null ? other.getTags() == null : this.getTags().equals(other.getTags()))
-            && (this.getUserstatus() == null ? other.getUserstatus() == null : this.getUserstatus().equals(other.getUserstatus()))
-            && (this.getAccesskey() == null ? other.getAccesskey() == null : this.getAccesskey().equals(other.getAccesskey()))
-            && (this.getSecretkey() == null ? other.getSecretkey() == null : this.getSecretkey().equals(other.getSecretkey()))
-            && (this.getUserrole() == null ? other.getUserrole() == null : this.getUserrole().equals(other.getUserrole()))
-            && (this.getCreatetime() == null ? other.getCreatetime() == null : this.getCreatetime().equals(other.getCreatetime()))
-            && (this.getUpdatetime() == null ? other.getUpdatetime() == null : this.getUpdatetime().equals(other.getUpdatetime()))
-            && (this.getIsdelete() == null ? other.getIsdelete() == null : this.getIsdelete().equals(other.getIsdelete()));
+            && (this.getUserStatus() == null ? other.getUserStatus() == null : this.getUserStatus().equals(other.getUserStatus()))
+            && (this.getAccessKey() == null ? other.getAccessKey() == null : this.getAccessKey().equals(other.getAccessKey()))
+            && (this.getSecretKey() == null ? other.getSecretKey() == null : this.getSecretKey().equals(other.getSecretKey()))
+            && (this.getUserRole() == null ? other.getUserRole() == null : this.getUserRole().equals(other.getUserRole()))
+            && (this.getCreateTime() == null ? other.getCreateTime() == null : this.getCreateTime().equals(other.getCreateTime()))
+            && (this.getUpdateTime() == null ? other.getUpdateTime() == null : this.getUpdateTime().equals(other.getUpdateTime()))
+            && (this.getIsDelete() == null ? other.getIsDelete() == null : this.getIsDelete().equals(other.getIsDelete()));
     }
 
     @Override
@@ -139,22 +155,22 @@ public class User implements Serializable {
         final int prime = 31;
         int result = 1;
         result = prime * result + ((getId() == null) ? 0 : getId().hashCode());
-        result = prime * result + ((getUseraccount() == null) ? 0 : getUseraccount().hashCode());
-        result = prime * result + ((getUserpassword() == null) ? 0 : getUserpassword().hashCode());
-        result = prime * result + ((getUnionid() == null) ? 0 : getUnionid().hashCode());
-        result = prime * result + ((getMpopenid() == null) ? 0 : getMpopenid().hashCode());
-        result = prime * result + ((getUsername() == null) ? 0 : getUsername().hashCode());
-        result = prime * result + ((getUseravatar() == null) ? 0 : getUseravatar().hashCode());
+        result = prime * result + ((getUserAccount() == null) ? 0 : getUserAccount().hashCode());
+        result = prime * result + ((getUserPassword() == null) ? 0 : getUserPassword().hashCode());
+        result = prime * result + ((getUnionId() == null) ? 0 : getUnionId().hashCode());
+        result = prime * result + ((getMpOpenId() == null) ? 0 : getMpOpenId().hashCode());
+        result = prime * result + ((getUserName() == null) ? 0 : getUserName().hashCode());
+        result = prime * result + ((getUserAvatar() == null) ? 0 : getUserAvatar().hashCode());
         result = prime * result + ((getGender() == null) ? 0 : getGender().hashCode());
-        result = prime * result + ((getUserprofile() == null) ? 0 : getUserprofile().hashCode());
+        result = prime * result + ((getUserProfile() == null) ? 0 : getUserProfile().hashCode());
         result = prime * result + ((getTags() == null) ? 0 : getTags().hashCode());
-        result = prime * result + ((getUserstatus() == null) ? 0 : getUserstatus().hashCode());
-        result = prime * result + ((getAccesskey() == null) ? 0 : getAccesskey().hashCode());
-        result = prime * result + ((getSecretkey() == null) ? 0 : getSecretkey().hashCode());
-        result = prime * result + ((getUserrole() == null) ? 0 : getUserrole().hashCode());
-        result = prime * result + ((getCreatetime() == null) ? 0 : getCreatetime().hashCode());
-        result = prime * result + ((getUpdatetime() == null) ? 0 : getUpdatetime().hashCode());
-        result = prime * result + ((getIsdelete() == null) ? 0 : getIsdelete().hashCode());
+        result = prime * result + ((getUserStatus() == null) ? 0 : getUserStatus().hashCode());
+        result = prime * result + ((getAccessKey() == null) ? 0 : getAccessKey().hashCode());
+        result = prime * result + ((getSecretKey() == null) ? 0 : getSecretKey().hashCode());
+        result = prime * result + ((getUserRole() == null) ? 0 : getUserRole().hashCode());
+        result = prime * result + ((getCreateTime() == null) ? 0 : getCreateTime().hashCode());
+        result = prime * result + ((getUpdateTime() == null) ? 0 : getUpdateTime().hashCode());
+        result = prime * result + ((getIsDelete() == null) ? 0 : getIsDelete().hashCode());
         return result;
     }
 
@@ -165,22 +181,22 @@ public class User implements Serializable {
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
         sb.append(", id=").append(id);
-        sb.append(", useraccount=").append(useraccount);
-        sb.append(", userpassword=").append(userpassword);
-        sb.append(", unionid=").append(unionid);
-        sb.append(", mpopenid=").append(mpopenid);
-        sb.append(", username=").append(username);
-        sb.append(", useravatar=").append(useravatar);
+        sb.append(", userAccount=").append(userAccount);
+        sb.append(", userPassword=").append(userPassword);
+        sb.append(", unionId=").append(unionId);
+        sb.append(", mpOpenId=").append(mpOpenId);
+        sb.append(", userName=").append(userName);
+        sb.append(", userAvatar=").append(userAvatar);
         sb.append(", gender=").append(gender);
-        sb.append(", userprofile=").append(userprofile);
+        sb.append(", userProfile=").append(userProfile);
         sb.append(", tags=").append(tags);
-        sb.append(", userstatus=").append(userstatus);
-        sb.append(", accesskey=").append(accesskey);
-        sb.append(", secretkey=").append(secretkey);
-        sb.append(", userrole=").append(userrole);
-        sb.append(", createtime=").append(createtime);
-        sb.append(", updatetime=").append(updatetime);
-        sb.append(", isdelete=").append(isdelete);
+        sb.append(", userStatus=").append(userStatus);
+        sb.append(", accessKey=").append(accessKey);
+        sb.append(", secretKey=").append(secretKey);
+        sb.append(", userRole=").append(userRole);
+        sb.append(", createTime=").append(createTime);
+        sb.append(", updateTime=").append(updateTime);
+        sb.append(", isDelete=").append(isDelete);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

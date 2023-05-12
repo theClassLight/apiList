@@ -1,10 +1,14 @@
 package com.example.project.service;
 
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.example.project.domain.request.UserAddRequest;
 import com.example.project.model.entity.User;
-
+import com.example.project.model.request.MyHttpRequest;
+import com.example.project.model.request.UserAddRequest;
+import com.example.project.model.request.UserQueryRequest;
+import com.example.project.model.vo.UserVO;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
@@ -108,4 +112,49 @@ public interface UserService extends IService<User> {
      */
     List<User> matchUsers(long num, User loginUser);
 
+    /**
+     * 获取查询条件 es配件 分页查询前置
+     *
+     * @param userQueryRequest
+     * @return
+     */
+    QueryWrapper<User> getQueryWrapper(UserQueryRequest userQueryRequest);
+
+    /**
+     * 分页查询用户 es配件
+     * @param userQueryRequest
+     */
+    Page<UserVO> listUserVOByPage(UserQueryRequest userQueryRequest);
+    /**
+     * 获取脱敏的用户信息
+     *
+     * @param user
+     * @return
+     */
+    UserVO getUserVO(User user);
+
+    /**
+     * 获取脱敏的用户信息
+     *
+     * @param userList
+     * @return
+     */
+    List<UserVO> getUserVO(List<User> userList);
+
+    /**
+     * 获取当前登录用户（允许未登录）
+     *
+     * @param request
+     * @return
+     */
+    User getLoginUserPermitNull(HttpServletRequest request);
+
+    /**
+     * 序列化测试
+     * @param userAccount
+     * @param userPassword
+     * @param request
+     * @return
+     */
+    User userLoginTest(String userAccount, String userPassword, MyHttpRequest request);
 }
