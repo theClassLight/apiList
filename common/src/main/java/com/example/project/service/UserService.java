@@ -156,5 +156,5 @@ public interface UserService extends IService<User> {
      * @param request
      * @return
      */
-    User userLoginTest(String userAccount, String userPassword, MyHttpRequest request);
+    User userLoginTest(String userAccount, String userPassword, HttpServletRequest request);
 }
