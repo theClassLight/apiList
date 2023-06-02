@@ -1,0 +1,31 @@
+server:
+  port: 8090
+spring:
+  cloud:
+    gateway:
+      default-filters:
+        - AddResponseHeader=source, ggapi
+      routes:
+      - id: api_route
+        uri: http://localhost:7529
+        predicates:
+          - Path=/api/**
+  main:
+    web-application-type: reactive
+logging:
+  level:
+    org:
+      springframework:
+        cloud:
+          gateway: trace
+dubbo:
+  application:
+    name: dubbo-springboot-user-consumer
+    qos-port: 33333
+  protocol:
+    name: dubbo
+    port: -1
+  registry:
+    id: nacos-registry
+    address: nacos://192.168.3.14:8848?username=nacos&password=nacos&
+    parameters.register-consumer-url: true
