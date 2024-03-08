@@ -51,14 +51,14 @@ public class AuthInterceptor {
         User user = userService.getLoginUser(request);
         // 拥有任意权限即通过
         if (CollectionUtils.isNotEmpty(anyRole)) {
-            String userRole = user.getUserrole();
+            String userRole = user.getUserRole();
             if (!anyRole.contains(userRole)) {
                 throw new BusinessException(ErrorCode.NO_AUTH);
             }
         }
         // 必须有所有权限才通过
         if (StringUtils.isNotBlank(mustRole)) {
-            String userRole = user.getUserrole();
+            String userRole = user.getUserRole();
             if (!mustRole.equals(userRole)) {
                 throw new BusinessException(ErrorCode.NO_ADMIN_AUTH);
             }

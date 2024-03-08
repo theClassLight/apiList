@@ -54,7 +54,7 @@ dubbo:
     port: -1
   registry:
     id: nacos-registry
-    address: nacos://192.168.3.14:8848?username=nacos&password=nacos&
+    address: nacos://192.168.139.1:8848?username=nacos&password=nacos&
     parameters.register-consumer-url: true
 knife4j:
   enable: true

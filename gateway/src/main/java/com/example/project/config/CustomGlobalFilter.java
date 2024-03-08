@@ -102,7 +102,7 @@ public class CustomGlobalFilter implements GlobalFilter , Ordered {
             return handleNoAuth(response);
         }
         // 实际情况中是从数据库中查出 secretKey
-        String secretKey = invokeUser.getSecretkey();
+        String secretKey = invokeUser.getSecretKey();
         String serverSign = SignUtils.genSign(body, secretKey);
         if (sign == null || !sign.equals(serverSign)) {
             return handleNoAuth(response);

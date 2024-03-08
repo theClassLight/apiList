@@ -80,6 +80,8 @@ public interface UserService extends IService<User> {
      */
     List<User> searchUsersByTags(List<String> tagNameList);
 
+    long userAdd(com.example.project.model.request.UserRequest.UserAddRequest userAddRequest);
+
     /**
      * 更新用户信息
      * @param user
@@ -157,4 +159,10 @@ public interface UserService extends IService<User> {
      * @return
      */
     User userLoginTest(String userAccount, String userPassword, HttpServletRequest request);
+
+    //endregion
+    // region 查询内容
+    QueryWrapper<User> getQueryWrapper(com.example.project.model.request.UserRequest.UserQueryRequest userQueryRequest);
+
+    Page<UserVO> listUserVOByPage(com.example.project.model.request.UserRequest.UserQueryRequest userQueryRequest);
 }

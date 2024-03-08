@@ -312,8 +312,8 @@ public class InterfaceInfoController {
             throw new BusinessException(ErrorCode.PARAMS_ERROR, "接口已关闭");
         }
         User loginUser = userService.getLoginUser(request);
-        String accessKey = loginUser.getAccesskey();
-        String secretKey = loginUser.getSecretkey();
+        String accessKey = loginUser.getAccessKey();
+        String secretKey = loginUser.getSecretKey();
         YuApiClient tempClient = new YuApiClient(accessKey, secretKey);
         Gson gson = new Gson();
         com.yupi.yuapiclientsdk.model.User user = gson.fromJson(userRequestParams, com.yupi.yuapiclientsdk.model.User.class);

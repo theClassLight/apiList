@@ -75,13 +75,13 @@ public class UserVO {
         }
         User other = (User) that;
         return (this.getId() == null ? other.getId() == null : this.getId().equals(other.getId()))
-                && (this.getUseraccount() == null ? other.getUseraccount() == null : this.getUseraccount().equals(other.getUseraccount()))
-                && (this.getUnionid() == null ? other.getUnionid() == null : this.getUnionid().equals(other.getUnionid()))
-                && (this.getMpopenid() == null ? other.getMpopenid() == null : this.getMpopenid().equals(other.getMpopenid()))
-                && (this.getUsername() == null ? other.getUsername() == null : this.getUsername().equals(other.getUsername()))
-                && (this.getUseravatar() == null ? other.getUseravatar() == null : this.getUseravatar().equals(other.getUseravatar()))
+                && (this.getUseraccount() == null ? other.getUserAccount() == null : this.getUseraccount().equals(other.getUserAccount()))
+                && (this.getUnionid() == null ? other.getUnionId() == null : this.getUnionid().equals(other.getUnionId()))
+                && (this.getMpopenid() == null ? other.getMpOpenId() == null : this.getMpopenid().equals(other.getMpOpenId()))
+                && (this.getUsername() == null ? other.getUserName() == null : this.getUsername().equals(other.getUserName()))
+                && (this.getUseravatar() == null ? other.getUserAvatar() == null : this.getUseravatar().equals(other.getUserAvatar()))
                 && (this.getGender() == null ? other.getGender() == null : this.getGender().equals(other.getGender()))
-                && (this.getUserprofile() == null ? other.getUserprofile() == null : this.getUserprofile().equals(other.getUserprofile()))
+                && (this.getUserprofile() == null ? other.getUserProfile() == null : this.getUserprofile().equals(other.getUserProfile()))
                 && (this.getTags() == null ? other.getTags() == null : this.getTags().equals(other.getTags()));
     }
 

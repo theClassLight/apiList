@@ -49,6 +49,7 @@ import static com.example.project.constant.UserConstant.USER_LOGIN_STATE;
 */
 @Service
 @Slf4j
+@DubboService
 public class UserServiceImpl extends ServiceImpl<com.example.project.mapper.UserMapper, User>
         implements UserService {
 
@@ -329,6 +330,16 @@ public class UserServiceImpl extends ServiceImpl<com.example.project.mapper.User
         return finalUserList;
     }
 
+    @Override
+    public QueryWrapper<User> getQueryWrapper(com.example.project.model.request.UserQueryRequest userQueryRequest) {
+        return null;
+    }
+
+    @Override
+    public Page<UserVO> listUserVOByPage(com.example.project.model.request.UserQueryRequest userQueryRequest) {
+        return null;
+    }
+
     /**
      * 根据标签搜索用户（SQL 查询版）
      *
@@ -467,6 +478,11 @@ public class UserServiceImpl extends ServiceImpl<com.example.project.mapper.User
         safetyUser.setUserProfile(originUser.getUserProfile());
         safetyUser.setTags(originUser.getTags());
         return safetyUser;
+    }
+
+    @Override
+    public long userAdd(com.example.project.model.request.UserAddRequest userAddRequest) {
+        return 0;
     }
 
     @Override
